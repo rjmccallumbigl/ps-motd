@@ -9,7 +9,7 @@
     $OS = $Wmi_Operatingsystem.Caption
     $Kernel = $Wmi_Operatingsystem.Version
     $Uptime = "$(($Uptime = $Date - $Wmi_Operatingsystem.LastBootUpTime).Days) days, $($Uptime.Hours) hours, $($Uptime.Minutes) minutes"
-    $Shell = "{0}.{1}" -f $PSVersionTable.PSVersion.Major,$PSVersionTable.PSVersion.Minor
+    $Shell = "{0}" -f $PSVersionTable.PSVersion.toString()
     $CPU = $Wmi_Processor.Name -replace '\(C\)', '' -replace '\(R\)', '' -replace '\(TM\)', '' -replace 'CPU', '' -replace '\s+', ' '
     $Processes = (Get-Process).Count
     $CurrentLoad = $Wmi_Processor.LoadPercentage
